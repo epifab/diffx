@@ -3,6 +3,8 @@ package com.softwaremill.diffx
 import scala.annotation.compileTimeOnly
 import com.softwaremill.diffx.DiffxSupport._
 
+import scala.reflect.ClassTag
+
 trait DiffxSupport
     extends DiffxEitherSupport
     with DiffxConsoleSupport
@@ -30,6 +32,10 @@ trait DiffxSupport
 object DiffxSupport {
   private[diffx] def canOnlyBeUsedInsideIgnore(method: String) =
     s"$method can only be used inside ignore"
+
+  implicit class DiffxSubtypeSelector[T](parent: T) {
+    def subtype[S <: T](implicit classTag: ClassTag[S]) = sys.error("")
+  }
 }
 
 trait DiffxEitherSupport {
