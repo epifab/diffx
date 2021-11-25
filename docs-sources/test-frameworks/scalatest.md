@@ -18,7 +18,7 @@ For use with `must` matchers:
 
 For use with `should` matchers:
 ```scala
-ivy"com.softwaremill.diffx::diffx-scalatest-must::@VERSION@"
+ivy"com.softwaremill.diffx::diffx-scalatest-should::@VERSION@"
 ```
 
 For use with `must` matchers:
